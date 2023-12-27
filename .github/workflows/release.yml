@@ -22,7 +22,7 @@ jobs:
       - name: Get registration token
         id: getRegToken
         run: |
-          curl -X POST -H \"Accept: application/vnd.github.v3+json\"  -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/myprofile/myrepo/actions/runners/registration-token
+          curl -X POST -H \"Accept: application/vnd.github.v3+json\"  -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/ys3721/ysl/actions/runners/registration-token
 
       # 查询版本号（tag）
       - name: Query version number
