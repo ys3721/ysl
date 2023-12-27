@@ -1,12 +1,10 @@
 # 可选，将显示在 GitHub 存储库的“操作”选项卡中的工作流名称
-name: Release Github Action
-
-# 指定此工作流的触发器
+name: publish
 on:
   push:
-    # 匹配特定标签 (refs/tags)
     tags:
-      - 'v*' # 推送事件匹配 v*, 例如 v1.0，v20.15.10 等来触发工作流
+      - 'v*'
+  workflow_dispatch:
 
 # 需要运行的作业组合
 jobs:
@@ -42,11 +40,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
-          cache: 'yarn' # Set this to npm, yarn or pnpm.
+          cache: 'npm' # Set this to npm, yarn or pnpm.
 
       - name: Install frontend dependencies
         # If you don't have `beforeBuildCommand` configured you may want to build your frontend here too.
-        run: yarn install # Change this to npm, yarn or pnpm.
+        run: npm install # Change this to npm, yarn or pnpm.
 
       - name: Build the app
         uses: tauri-apps/tauri-action@v0
